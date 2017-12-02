@@ -2,7 +2,7 @@
 
 extern SEGame* CurrentGame;
 
-SFPanelSpecific::SFPanelSpecific(sf::Vector2f size, SFPanelTypes panel_type, SEShip* playerShip) : SFPanel(size, panel_type)
+SFPanelSpecific::SFPanelSpecific(sf::Vector2f size, SFPanelTypes panel_type, SEShip* playerShip) : SEPanel(size, panel_type)
 {
 	m_playerShip = playerShip;
 	m_title_text.setFont(*(*CurrentGame).m_font[Font_Arial]);
@@ -58,7 +58,7 @@ void SFPanelSpecific::Draw(sf::RenderTexture& screen)
 {
 	if (m_visible)
 	{
-		SFPanel::Draw(screen);
+		SEPanel::Draw(screen);
 		screen.draw(m_title_text);
 
 		if (m_actions)

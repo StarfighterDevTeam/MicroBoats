@@ -67,6 +67,11 @@ void SEGameObject::setAnimationLine(int animation, bool keep_frame_index)
 	m_currentAnimationIndex = animation;
 }
 
+void SEGameObject::Init(sf::Vector2f position, sf::Vector2f speed, sf::Texture *texture)
+{
+	Init(position, speed, texture, 0, 1);
+}
+
 void SEGameObject::Init(sf::Vector2f position, sf::Vector2f speed, sf::Texture *texture, int frameNumber, int animationNumber)
 {
 	m_animationNumber = animationNumber;

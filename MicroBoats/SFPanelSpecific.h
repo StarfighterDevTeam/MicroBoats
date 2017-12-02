@@ -4,7 +4,7 @@
 #include "SEGame.h"
 #include "Enums.h"
 
-class SFPanelSpecific : public SFPanel
+class SFPanelSpecific : public SEPanel
 {
 public:
 	SFPanelSpecific(sf::Vector2f size, SFPanelTypes panel_type, SEShip* playerShip);
