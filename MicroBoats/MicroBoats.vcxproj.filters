@@ -1,6 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="MicroBoats.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="InGameState.cpp" />
+    <ClCompile Include="Inputs.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SFPanelSpecific.cpp" />
+    <ClCompile Include="Ship.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="InGameState.h" />
+    <ClInclude Include="Inputs.h" />
+    <ClInclude Include="SFPanelSpecific.h" />
+    <ClInclude Include="Ship.h" />
+    <ClInclude Include="EngineConfig\Enums.h">
+      <Filter>EngineConfig</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="EngineConfig">
+      <UniqueIdentifier>{53647a3a-4ed2-45a9-8424-305459d93165}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

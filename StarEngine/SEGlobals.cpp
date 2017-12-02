@@ -1,29 +1,29 @@
 #include "SEGlobals.h"
 
 // *** Linking dependencies ***
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\flac.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\freetype.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\jpeg.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\ogg.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\openal32.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\vorbis.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\vorbisenc.lib")
-#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\vorbisfile.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\flac.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\freetype.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\jpeg.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\ogg.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\openal32.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\vorbis.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\vorbisenc.lib")
+#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\vorbisfile.lib")
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "winmm.lib")
 
 #ifdef NDEBUG
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-audio-s.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-graphics-s.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-network-s.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-system-s.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-window-s.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-audio-s.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-graphics-s.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-network-s.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-system-s.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-window-s.lib")
 #else
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-audio-s-d.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-graphics-s-d.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-network-s-d.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-system-s-d.lib")
-	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.0\\lib\\sfml-window-s-d.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-audio-s-d.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-graphics-s-d.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-network-s-d.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-system-s-d.lib")
+	#pragma comment(lib, "..\\StarEngine\\SFML-2.4.2\\lib\\sfml-window-s-d.lib")
 #endif
 
 // ****************************

@@ -19,7 +19,7 @@ void SEInGameState::Initialize(sf::RenderWindow* window, SEShip* playerShip)
 	//Loading scripts
 	LoadCSVFile(SHIP_CSV_FILE);
 
-	GameObject* background = new GameObject(sf::Vector2f(990, 540), sf::Vector2f(0, 0), "2D/background.png", sf::Vector2f(1980, 1080), sf::Vector2f(990, 540));
+	SEGameObject* background = new SEGameObject(sf::Vector2f(990, 540), sf::Vector2f(0, 0), "2D/background.png", sf::Vector2f(1980, 1080), sf::Vector2f(990, 540));
 	(*CurrentGame).addToScene(background, BackgroundLayer, BackgroundObject);
 
 	(*CurrentGame).m_map_size = background->m_size;

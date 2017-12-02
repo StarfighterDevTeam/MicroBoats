@@ -436,19 +436,19 @@ void SEGame::AddSFTextToVector(SFText* pSFText, vector<SFText*>* vector)
 	vector->push_back(pSFText);
 }
 
-bool SEGame::isVectorEmpty(vector <SEGameObject*>* vector)
-{
-	const size_t vectorSize = vector->size();
-	for (size_t i = 0; i < vectorSize; i++)
-	{
-		if ((*vector)[i] != NULL)
-		{
-			return false;
-		}
-	}
-
-	return true;
-}
+//bool SEGame::isVectorEmpty(vector <SEGameObject*>* vector)
+//{
+//	const size_t vectorSize = vector->size();
+//	for (size_t i = 0; i < vectorSize; i++)
+//	{
+//		if ((*vector)[i] != NULL)
+//		{
+//			return false;
+//		}
+//	}
+//
+//	return true;
+//}
 
 void SEGame::SetLayerRotation(LayerType layer, float angle)
 {

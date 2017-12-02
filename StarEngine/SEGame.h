@@ -3,7 +3,7 @@
 
 #include "SEGlobals.h"
 #include "SEGameObject.h"
-#include "SEHudGrid.h"
+//#include "SEHudGrid.h"
 #include <list>
 #include <vector>
 #include "TextUtils.h"

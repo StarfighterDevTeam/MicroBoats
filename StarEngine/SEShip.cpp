@@ -66,7 +66,7 @@ void SEShip::update(sf::Time deltaTime)
 	IdleDecelleration(deltaTime);
 	UpdateRotation();
 
-	GameObject::update(deltaTime);
+	SEGameObject::update(deltaTime);
 
 	//HUD
 	m_is_asking_SFPanel = SFPanel_None;
