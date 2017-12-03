@@ -10,7 +10,7 @@ SEShip::SEShip()
 	
 }
 
-void SEShip::InitShip()
+void SEShip::Init()
 {
 	m_collider_type = PlayerShip;
 	m_moving = false;
@@ -26,14 +26,14 @@ void SEShip::InitShip()
 	m_is_asking_SFPanel = SFPanel_None;
 }
 
-SEShip::SEShip(sf::Vector2f position, sf::Vector2f speed, std::string textureName, sf::Vector2f size, sf::Vector2f origin, int frameNumber, int animationNumber) : SEGameObject(position, speed, textureName, size, origin, frameNumber, animationNumber)
+SEShip::SEShip(sf::Vector2f position, sf::Vector2f speed, std::string textureName, sf::Vector2f size, sf::Vector2f origin, int frameNumber, int animationNumber) : GameObject(position, speed, textureName, size, origin, frameNumber, animationNumber)
 {
-	this->InitShip();
+	this->Init();
 }
 
-SEShip::SEShip(sf::Vector2f position, sf::Vector2f speed, std::string textureName, sf::Vector2f size) : SEGameObject(position, speed, textureName, size)
+SEShip::SEShip(sf::Vector2f position, sf::Vector2f speed, std::string textureName, sf::Vector2f size) : GameObject(position, speed, textureName, size)
 {
-	this->InitShip();
+	this->Init();
 }
 
 SEShip::~SEShip()
@@ -66,7 +66,7 @@ void SEShip::update(sf::Time deltaTime)
 	IdleDecelleration(deltaTime);
 	UpdateRotation();
 
-	SEGameObject::update(deltaTime);
+	GameObject::update(deltaTime);
 
 	//HUD
 	m_is_asking_SFPanel = SFPanel_None;

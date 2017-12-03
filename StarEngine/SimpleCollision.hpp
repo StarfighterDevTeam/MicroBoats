@@ -14,7 +14,7 @@ public:
 		return sf::IntRect((int)f.left, (int)f.top, (int)f.width, (int)f.height);
 	}
 
-	static bool AreColliding(const SEGameObject* GameObjectA, const SEGameObject* GameObjectB) {
+	static bool AreColliding(const GameObject* GameObjectA, const GameObject* GameObjectB) {
 		// If not visibe, let's not even bother with the collision
 		if (!GameObjectA->m_visible || !(GameObjectB->m_visible))
 			return false;
@@ -52,7 +52,7 @@ public:
 		return false;
 	}
 
-	static bool IsGrazing(const SEGameObject* GameObjectA, const SEGameObject* GameObjectB)
+	static bool IsGrazing(const GameObject* GameObjectA, const GameObject* GameObjectB)
 	{
 		// If not visibe, let's not even bother with the collision
 		if (!GameObjectA->m_visible || !(GameObjectB->m_visible))

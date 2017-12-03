@@ -36,7 +36,7 @@ source distribution.
 #ifndef COLLISIONUTILS_H
 #define COLLISIONUTILS_H
 
-#include "SEGameObject.h"
+#include "GameObject.h"
 
 namespace Collision {
 	//////
@@ -49,7 +49,7 @@ namespace Collision {
 	/// downloading the textures from the graphics card to memory -> SLOW!
 	/// You can avoid this by using the "CreateTextureAndBitmask" function
 	//////
-	bool PixelPerfectTest(const SEGameObject* Object1, const SEGameObject* Object2, sf::Uint8 AlphaLimit = 0);
+	bool PixelPerfectTest(const GameObject* Object1, const GameObject* Object2, sf::Uint8 AlphaLimit = 0);
 
 	//////
 	/// Replaces Texture::loadFromFile

@@ -4,7 +4,7 @@ extern SEGame* CurrentGame;
 
 using namespace sf;
 
-Glow::Glow(SEGameObject* parent, sf::Color color, int glow_thickness, int stroke_size)
+Glow::Glow(GameObject* parent, sf::Color color, int glow_thickness, int stroke_size)
 {
 	sf::Uint8* pixels = CreateGlowFrame(parent, color, glow_thickness, stroke_size);
 
@@ -14,7 +14,7 @@ Glow::Glow(SEGameObject* parent, sf::Color color, int glow_thickness, int stroke
 	Init(parent->getPosition(), sf::Vector2f(0, 0), m_textureName, sf::Vector2f(W, H), 1, 1, pixels);
 }
 
-sf::Uint8* Glow::CreateGlowFrame(SEGameObject* parent, sf::Color color, int glow_thickness, int stroke_size)
+sf::Uint8* Glow::CreateGlowFrame(GameObject* parent, sf::Color color, int glow_thickness, int stroke_size)
 {
 	assert(parent != NULL);
 
@@ -47,7 +47,7 @@ sf::Uint8* Glow::CreateGlowFrame(SEGameObject* parent, sf::Color color, int glow
 	return pixels;
 }
 
-Glow::Glow(SEGameObject* parent, sf::Color color, int glow_thickness, int stroke_size, float glow_animation_duration, int glow_min_thickness)
+Glow::Glow(GameObject* parent, sf::Color color, int glow_thickness, int stroke_size, float glow_animation_duration, int glow_min_thickness)
 {
 	m_collider_type = BackgroundObject;
 	m_color = color;

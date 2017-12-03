@@ -1,14 +1,14 @@
 #ifndef STROBOSCOPIC_H_INCLUDED
 #define STROBOSCOPIC_H_INCLUDED
 
-#include "SEGlobals.h"
+#include "Globals.h"
 #include "SEGame.h"
-#include "SEGameObject.h"
+#include "GameObject.h"
 
-class Stroboscopic : public SEGameObject
+class Stroboscopic : public GameObject
 {
 public :
-	Stroboscopic(sf::Time decade_time, SEGameObject* parent);
+	Stroboscopic(sf::Time decade_time, GameObject* parent);
 	virtual ~Stroboscopic();
 	void update(sf::Time deltaTime) override;
 

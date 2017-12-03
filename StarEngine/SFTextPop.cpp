@@ -1,6 +1,6 @@
 #include "SFTextPop.h"
 
-SFTextPop::SFTextPop(SFText* text, float distance_not_faded, float distance_faded, float total_pop_time, SEGameObject* target, float offset_positionY)
+SFTextPop::SFTextPop(SFText* text, float distance_not_faded, float distance_faded, float total_pop_time, GameObject* target, float offset_positionY)
 {
 	setFont(*text->getFont());
 	setCharacterSize(text->getCharacterSize());

@@ -1,7 +1,7 @@
 #ifndef SFTEXTPOP_H_INCLUDED
 #define SFTEXTPOP_H_INCLUDED
 
-#include "SEGameObject.h"
+#include "GameObject.h"
 
 using namespace sf;
 
@@ -9,7 +9,7 @@ class SFTextPop : public SFText
 {
 public:
 	SFTextPop() {};
-	SFTextPop(SFText* text, float distance_not_faded, float distance_faded, float total_pop_time, SEGameObject* target, float offset_positionY);
+	SFTextPop(SFText* text, float distance_not_faded, float distance_faded, float total_pop_time, GameObject* target, float offset_positionY);
 	~SFTextPop() {};
 	void update(Time deltaTime) override;
 
@@ -18,7 +18,7 @@ public:
 	float m_total_pop_time;
 	sf::Clock m_timer_clock;
 	Uint8 m_alpha;
-	SEGameObject* m_target;
+	GameObject* m_target;
 	float m_offset_positionY;
 };
 

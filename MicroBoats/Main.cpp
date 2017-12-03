@@ -18,7 +18,7 @@ SEInputs* CreateInputs()
 
 SEShip* CreateShip()
 {
-	return new Ship(sf::Vector2f(SHIP_START_X, SHIP_START_Y), sf::Vector2f(0, 0), "2D/natalia.png", sf::Vector2f(64, 64), sf::Vector2f(32, 32), 3);
+	return new Ship(sf::Vector2f(SHIP_START_X, SHIP_START_Y), sf::Vector2f(0, 0), "2D/boat.png", sf::Vector2f(32, 64), sf::Vector2f(16, 32), 1);
 }
 
 SEGame* CreateGame()

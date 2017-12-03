@@ -1,8 +1,8 @@
 #ifndef SESHIP_H_INCLUDED
 #define SESHIP_H_INCLUDED
 
-#include "SEGlobals.h"
-#include "SEGameObject.h"
+#include "Globals.h"
+#include "GameObject.h"
 #include "SEInputs.h"
 #include "SEGame.h"
 #include "SFTextPop.h"
@@ -16,16 +16,17 @@
 #define SHIP_MIN_SPEED				50.0f
 #define SHIP_SPRITE_RATE_SEC        0.2f
 
-class SEShip : public SEGameObject
+class SEShip : public GameObject
 {
 public :
 	SEShip();
 	SEShip(sf::Vector2f position, sf::Vector2f speed, std::string textureName, sf::Vector2f size, sf::Vector2f origin, int frameNumber = 1, int animationNumber = 1);
 	SEShip(sf::Vector2f position, sf::Vector2f speed, std::string textureName, sf::Vector2f size);
-	virtual void InitShip();
+	void Init();
 	virtual ~SEShip();
 	virtual void update(sf::Time deltaTime) override;
 	
+	void ManageHudControls(sf::Vector2f inputs_directions);
 	void ManageAcceleration(sf::Vector2f inputs_direction);
 	void IdleDecelleration(sf::Time deltaTime);
 	bool ScreenBorderContraints();
@@ -48,7 +49,7 @@ public :
 
 	sf::Clock m_stroboscopic_effect_clock;
 
-	SEPanel* m_SFTargetPanel;
+	SFPanel* m_SFTargetPanel;
 	SFPanelTypes m_is_asking_SFPanel;
 
 protected:

@@ -37,10 +37,10 @@ int SEGame::LoadSFX()
 
 void SEGame::PlaySFX(SFX_Bank sfx_name)
 {
-	//if (sfx_name == SFX_Laser)
-	//{
-	//	m_soundsLaser[0].play();
-	//}
+	if (sfx_name == SFX_Laser)
+	{
+		m_soundsLaser[0].play();
+	}
 }
 
 void SEGame::SetMusicVolume(bool activate_music)
@@ -71,11 +71,11 @@ void SEGame::PlayMusic(Music_Bank music, string specific_filename)
 		//choose the right music file
 		switch (music)
 		{
-			//case Music_Main:
-			//{
-			//	m_next_music_name = makePath("Music/Main.ogg");
-			//	break;
-			//}
+			case Music_Main:
+			{
+				m_next_music_name = makePath("Music/Main.ogg");
+				break;
+			}
 		}
 	}
 
@@ -128,7 +128,7 @@ sf::RenderWindow* SEGame::getMainWindow()
 	return m_window;
 }
 
-void SEGame::addToScene(SEGameObject *object, LayerType layer, GameObjectType type)
+void SEGame::addToScene(GameObject *object, LayerType layer, GameObjectType type)
 {
 	object->m_layer = layer;
 	object->m_collider_type = type;
@@ -158,9 +158,9 @@ void SEGame::addToFeedbacks(Text* text)
 	m_sceneFeedbackTexts.push_back(text);
 }
 
-void SEGame::addToFeedbacks(SEPanel* panel)
+void SEGame::addToFeedbacks(SFPanel* panel)
 {
-	m_sceneFeedbackSEPanels.push_back(panel);
+	m_sceneFeedbackSFPanels.push_back(panel);
 }
 
 void SEGame::addToFeedbacks(SFText* text)
@@ -181,9 +181,9 @@ void SEGame::removeFromFeedbacks(Text* text)
 	m_sceneFeedbackTexts.remove(text);
 }
 
-void SEGame::removeFromFeedbacks(SEPanel* panel)
+void SEGame::removeFromFeedbacks(SFPanel* panel)
 {
-	m_sceneFeedbackSEPanels.remove(panel);
+	m_sceneFeedbackSFPanels.remove(panel);
 }
 
 void SEGame::updateScene(Time deltaTime)
@@ -264,14 +264,14 @@ void SEGame::drawScene()
 		}
 		else if (i == PanelLayer)
 		{
-			for (std::list<SEPanel*>::iterator it = this->m_sceneFeedbackSEPanels.begin(); it != this->m_sceneFeedbackSEPanels.end(); it++)
+			for (std::list<SFPanel*>::iterator it = this->m_sceneFeedbackSFPanels.begin(); it != this->m_sceneFeedbackSFPanels.end(); it++)
 			{
 				(*(*it)).Draw(m_mainScreen);
 			}
 		}
 		else
 		{
-			for (std::vector<SEGameObject*>::iterator it = this->m_sceneGameObjectsLayered[i].begin(); it != this->m_sceneGameObjectsLayered[i].end(); it++)
+			for (std::vector<GameObject*>::iterator it = this->m_sceneGameObjectsLayered[i].begin(); it != this->m_sceneGameObjectsLayered[i].end(); it++)
 			{
 				if (*it == NULL)
 					continue;
@@ -297,13 +297,13 @@ void SEGame::colisionChecksV2()
 	dt.restart();
 
 	//First, Checks if the ship has been touched by an enemy/enemy bullet
-	for (std::vector<SEGameObject*>::iterator it1 = m_sceneGameObjectsTyped[GameObjectType::PlayerShip].begin(); it1 != m_sceneGameObjectsTyped[GameObjectType::PlayerShip].end(); it1++)
+	for (std::vector<GameObject*>::iterator it1 = m_sceneGameObjectsTyped[GameObjectType::PlayerShip].begin(); it1 != m_sceneGameObjectsTyped[GameObjectType::PlayerShip].end(); it1++)
 	{
 		if (*it1 == NULL)
 			continue;
 
 		//Enemy bullets hitting the player
-		for (std::vector<SEGameObject*>::iterator it2 = m_sceneGameObjectsTyped[GameObjectType::EnemyFire].begin(); it2 != m_sceneGameObjectsTyped[GameObjectType::EnemyFire].end(); it2++)
+		for (std::vector<GameObject*>::iterator it2 = m_sceneGameObjectsTyped[GameObjectType::EnemyFire].begin(); it2 != m_sceneGameObjectsTyped[GameObjectType::EnemyFire].end(); it2++)
 		{
 			if (*it2 == NULL)
 				continue;
@@ -342,7 +342,7 @@ void SEGame::cleanGarbage()
 	//Scene GameObjects
 	for (size_t i = 0; i < garbageSize; i++)
 	{
-		SEGameObject*    pCurGameObject = m_garbage[i];
+		GameObject*    pCurGameObject = m_garbage[i];
 
 		// On remet à NULL lorsqu'on a trouvé un élément à dégager
 		for (size_t j = 0; j < sceneGameObjectsSize; j++)
@@ -404,7 +404,7 @@ void SEGame::cleanGarbage()
 	//printf("| Clean: %d ",dt.getElapsedTime().asMilliseconds());
 }
 
-void SEGame::AddGameObjectToVector(SEGameObject* pGameObject, vector<SEGameObject*>* vector)
+void SEGame::AddGameObjectToVector(GameObject* pGameObject, vector<GameObject*>* vector)
 {
 	const size_t vectorSize = vector->size();
 	for (size_t i = 0; i < vectorSize; i++)
@@ -436,56 +436,6 @@ void SEGame::AddSFTextToVector(SFText* pSFText, vector<SFText*>* vector)
 	vector->push_back(pSFText);
 }
 
-//bool SEGame::isVectorEmpty(vector <SEGameObject*>* vector)
-//{
-//	const size_t vectorSize = vector->size();
-//	for (size_t i = 0; i < vectorSize; i++)
-//	{
-//		if ((*vector)[i] != NULL)
-//		{
-//			return false;
-//		}
-//	}
-//
-//	return true;
-//}
-
-void SEGame::SetLayerRotation(LayerType layer, float angle)
-{
-	for (std::vector<SEGameObject*>::iterator it = m_sceneGameObjectsLayered[layer].begin(); it != m_sceneGameObjectsLayered[layer].end(); it++)
-	{
-		if (*it == NULL)
-			continue;
-
-		(*it)->setRotation(angle);
-	}
-}
-
-void SEGame::SetLayerSpeed(LayerType layer, sf::Vector2f speed)
-{
-	for (std::vector<SEGameObject*>::iterator it = m_sceneGameObjectsLayered[layer].begin(); it != m_sceneGameObjectsLayered[layer].end(); it++)
-	{
-		if (*it == NULL)
-			continue;
-
-		(*it)->m_speed = speed;
-	}
-}
-
-bool SEGame::isVectorEmpty(vector <SEGameObject*>* vector)
-{
-	const size_t vectorSize = vector->size();
-	for (size_t i = 0; i < vectorSize; i++)
-	{
-		if ((*vector)[i] != NULL)
-		{
-			return false;
-		}
-	}
-
-	return true;
-}
-
 void SEGame::collectGarbage()
 {
 	sf::Clock dt;
@@ -494,7 +444,7 @@ void SEGame::collectGarbage()
 	m_garbage.clear();
 	m_garbageTexts.clear();
 
-	for (std::vector<SEGameObject*>::iterator it = m_sceneGameObjects.begin(); it != m_sceneGameObjects.end(); it++)
+	for (std::vector<GameObject*>::iterator it = m_sceneGameObjects.begin(); it != m_sceneGameObjects.end(); it++)
 	{
 		if (*it == NULL)
 			continue;
@@ -544,11 +494,11 @@ void SEGame::collectGarbage()
 	//printf("| Collect: %d ",dt.getElapsedTime().asMilliseconds());
 }
 
-SEGameObject* SEGame::GetClosestObject(const sf::Vector2f position, GameObjectType type_of_closest_object)
+GameObject* SEGame::GetClosestObject(const sf::Vector2f position, GameObjectType type_of_closest_object)
 {
 	float shortest_distance = -1;
-	SEGameObject* returned_obj = NULL;
-	for (std::vector<SEGameObject*>::iterator it = m_sceneGameObjectsTyped[type_of_closest_object].begin(); it != m_sceneGameObjectsTyped[type_of_closest_object].end(); it++)
+	GameObject* returned_obj = NULL;
+	for (std::vector<GameObject*>::iterator it = m_sceneGameObjectsTyped[type_of_closest_object].begin(); it != m_sceneGameObjectsTyped[type_of_closest_object].end(); it++)
 	{
 		if (*it == NULL)
 			continue;
@@ -571,19 +521,19 @@ SEGameObject* SEGame::GetClosestObject(const sf::Vector2f position, GameObjectTy
 	return returned_obj;
 }
 
-SEGameObject* SEGame::GetClosestObject(const SEGameObject* ref_obj, GameObjectType type_of_closest_object)
+GameObject* SEGame::GetClosestObject(const GameObject* ref_obj, GameObjectType type_of_closest_object)
 {
 	const sf::Vector2f ref_position = ref_obj->getPosition();
 
 	return GetClosestObject(ref_position, type_of_closest_object);
 }
 
-std::vector<SEGameObject*> SEGame::GetSceneGameObjectsTyped(GameObjectType type)
+std::vector<GameObject*> SEGame::GetSceneGameObjectsTyped(GameObjectType type)
 {
 	return m_sceneGameObjectsTyped[type];
 }
 
-void SEGame::CreateSFTextPop(string text, FontsStyle font, unsigned int size, sf::Color color, sf::Vector2f position, PlayerTeams team, float distance_not_faded, float distance_faded, float total_pop_time, SEGameObject* follow_target, float offset_positionY)
+void SEGame::CreateSFTextPop(string text, FontsStyle font, unsigned int size, sf::Color color, sf::Vector2f position, PlayerTeams team, float distance_not_faded, float distance_faded, float total_pop_time, GameObject* follow_target, float offset_positionY)
 {
 	SFText* text_feedback = new SFText(m_font[font], 16, color, sf::Vector2f(position.x, position.y), team);
 	SFTextPop* pop_feedback = new SFTextPop(text_feedback, distance_not_faded, distance_faded, total_pop_time, follow_target, offset_positionY);

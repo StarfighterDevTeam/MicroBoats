@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "SEGlobals.h"
+#include "Globals.h"
 
 using namespace sf;
 

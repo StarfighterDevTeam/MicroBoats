@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <cmath>
 #include <SFML/Audio.hpp>
-#include "SEGlobals.h"
+#include "Globals.h"
 #include "TextureLoader.h"
-#include "SEGameObject.h"
+#include "GameObject.h"
 #include "SEGame.h"
 #include "Logger.h"
 #include "SEInGameState.h"

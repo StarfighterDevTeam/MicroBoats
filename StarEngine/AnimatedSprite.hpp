@@ -31,7 +31,7 @@
 #include <SFML/System/Vector2.hpp>
 
 #include "Animation.hpp"
-#include "SEGlobals.h"
+#include "Globals.h"
 
 #define TIME_BETWEEN_ANIMATION_FRAMES			0.2f
 
